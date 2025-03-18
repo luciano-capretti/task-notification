@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Backoffice\Employee\App\Controllers;
+namespace Lightit\Backoffice\Employee\App\Controllers;
 
-use App\Actions\Employee\StoreEmployeeAction;
-use App\Http\Controllers\Controller;
-use App\Requests\StoreEmployeeRequest;
+use Lightit\Backoffice\Employee\Domain\Actions\StoreEmployeeAction;
+use Lightit\Backoffice\Employee\App\Request\StoreEmployeeRequest;
 use Illuminate\Http\JsonResponse;
 use Lightit\Backoffice\Employee\App\Transformers\EmployeeTransformer;
 
-class StoreEmployeeController extends Controller
+class StoreEmployeeController
 {
     public function __invoke(StoreEmployeeRequest $request, StoreEmployeeAction $action): JsonResponse
     {
-        $employee = $action->execute($request);
+        $employee = $action->execute($request->toDto());
         
         return responder()
                ->success($employee, EmployeeTransformer::class)

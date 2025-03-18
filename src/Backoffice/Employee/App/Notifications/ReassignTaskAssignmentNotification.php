@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Lightit\Backoffice\Employee\App\Notifications;
 
+use Lightit\Backoffice\Employee\App\Notifications\TaskAssignmentNotification;
+
 class ReassignTaskAssignmentNotification extends TaskAssignmentNotification
 {
     protected function getSubject(): string

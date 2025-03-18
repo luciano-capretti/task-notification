@@ -7,7 +7,7 @@ use Lightit\Backoffice\Users\App\Controllers\{
 };
 
 use Lightit\Backoffice\Employee\App\Controllers\ListEmployeeController;
-use App\Backoffice\Employee\App\Controllers\StoreEmployeeController;
+use Lightit\Backoffice\Employee\App\Controllers\StoreEmployeeController;
 
 
 use Lightit\Backoffice\Task\App\Controllers\StoreTaskController;

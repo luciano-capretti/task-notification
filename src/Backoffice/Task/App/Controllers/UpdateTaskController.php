@@ -5,13 +5,12 @@ declare(strict_types=1);
 
 namespace Lightit\Backoffice\Task\App\Controllers;
 
-use App\Http\Controllers\Controller;
 use Backoffice\Task\Domain\Actions\UpdateTaskAction;
 use Illuminate\Http\JsonResponse;
 use Lightit\Backoffice\Task\App\Requests\TaskRequest;
 use Lightit\Backoffice\Task\App\Transformers\TaskTransformer;
 
-class UpdateTaskController extends Controller
+class UpdateTaskController
 {
     public function __invoke(TaskRequest $request, UpdateTaskAction $action): JsonResponse
     {

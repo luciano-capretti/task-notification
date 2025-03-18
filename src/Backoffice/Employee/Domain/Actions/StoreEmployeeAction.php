@@ -1,13 +1,19 @@
 <?php
 
-namespace App\Backoffice\Employee\Domain\Actions;
+namespace Lightit\Backoffice\Employee\Domain\Actions;
 
+use Lightit\Backoffice\Employee\Domain\DataTransferObjects\EmployeeDto;
 use Lightit\Backoffice\Employee\Models\Employee;
 
 class StoreEmployeeAction
 {
-    public function execute(array $data): Employee
+    public function execute(EmployeeDto $employee_dto): Employee
     {
-        return Employee::create($data);
+        $employee = Employee::create([
+            'name' => $employee_dto->getName(),
+            'email' => $employee_dto->getEmail(),
+        ]);
+
+        return $employee;
     }
 }
