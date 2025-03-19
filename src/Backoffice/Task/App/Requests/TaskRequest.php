@@ -13,9 +13,13 @@ use Lightit\Backoffice\Task\Domain\Enums\StatusEnum;
 class TaskRequest extends FormRequest
 {
     public const ID = 'id';
+
     public const TITLE = 'title';
+
     public const DESCRIPTION = 'description';
+
     public const STATUS = 'status';
+
     public const EMPLOYEE_ID = 'employee_id';
 
     public function rules(): array

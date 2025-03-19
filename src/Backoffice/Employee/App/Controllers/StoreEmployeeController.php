@@ -1,12 +1,13 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Lightit\Backoffice\Employee\App\Controllers;
 
-use Lightit\Backoffice\Employee\Domain\Actions\StoreEmployeeAction;
-use Lightit\Backoffice\Employee\App\Request\StoreEmployeeRequest;
 use Illuminate\Http\JsonResponse;
+use Lightit\Backoffice\Employee\App\Request\StoreEmployeeRequest;
 use Lightit\Backoffice\Employee\App\Transformers\EmployeeTransformer;
+use Lightit\Backoffice\Employee\Domain\Actions\StoreEmployeeAction;
 
 class StoreEmployeeController
 {

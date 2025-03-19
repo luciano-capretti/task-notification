@@ -41,8 +41,8 @@
                     }
                 ]
             },
-            { "action": "composer run-script ecs:fix", "options": [] },
-            { "action": "composer run-script rector:fix ", "options": [] }
+            { "action": "./vendor/bin/sail composer run-script ecs:fix", "options": [] },
+            { "action": "./vendor/bin/sail composer run-script rector:fix ", "options": [] }
         ]
     },
     "pre-push": {

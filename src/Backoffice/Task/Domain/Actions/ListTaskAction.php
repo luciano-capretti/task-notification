@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Lightit\Backoffice\Task\Domain\Actions;
 
 use Illuminate\Database\Eloquent\Collection;
-use Lightit\Backoffice\Task\App\Requests\TaskRequest;
 use Lightit\Backoffice\Task\Models\Task;
 
 class ListTaskAction

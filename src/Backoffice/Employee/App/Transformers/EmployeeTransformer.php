@@ -11,6 +11,7 @@ class EmployeeTransformer extends Transformer
 {
     /**
      * Transform the model data into a generic array.
+     *
      * @return array{id: int, name: string, email: string}
      */
     public function transform(Employee $employee): array
