@@ -1,0 +1,40 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Lightit\Backoffice\Task\App\Transformers;
+
+use Flugg\Responder\Transformers\Transformer;
+use Lightit\Backoffice\Employee\App\Transformers\EmployeeTransformer;
+use Lightit\Backoffice\Task\Domain\Enums\StatusEnum;
+use Lightit\Backoffice\Task\Models\Task;
+
+class TaskTransformer extends Transformer
+{
+    /*
+     * @var string[]
+     */
+    protected $relations = [
+        'employee_id' => EmployeeTransformer::class,
+    ];
+
+    /**
+     * @return array{
+     *               id: int,
+     *               title: string,
+     *               description: string,
+     *               status: StatusEnum,
+     *               employee_id: int
+     *              }
+     */
+    public function transform(Task $task): array
+    {
+        return [
+            'id' => $task->id,
+            'title' => $task->title,
+            'description' => $task->description,
+            'status' => StatusEnum::from($task->status),
+            'employee_id' => $task->employee_id,
+        ];
+    }
+}

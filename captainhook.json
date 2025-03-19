@@ -41,8 +41,8 @@
                     }
                 ]
             },
-            { "action": "composer run-script ecs:fix", "options": [] },
-            { "action": "composer run-script rector:fix ", "options": [] }
+            { "action": "./vendor/bin/sail composer run-script ecs:fix", "options": [] },
+            { "action": "./vendor/bin/sail composer run-script rector:fix ", "options": [] }
         ]
     },
     "pre-push": {
@@ -58,10 +58,11 @@
                 "action": "\\CaptainHook\\App\\Hook\\Composer\\Action\\CheckLockFile",
                 "options": []
             },
-            { "action": "composer run-script phpstan", "options": [] },
-            { "action": "composer run-script rector", "options": [] },
-            { "action": "composer run-script ecs", "options": [] },
-            { "action": "vendor/bin/sail composer test" }
+            { "action": "./vendor/bin/sail composer run-script phpstan", "options": [] },
+            { "action": "./vendor/bin/sail composer run-script rector", "options": [] },
+            { "action": "./vendor/bin/sail composer run-script ecs", "options": [] },
+            { "action": "./vendor/bin/sail composer test" }
+
         ]
     }
 }
