@@ -6,7 +6,7 @@ namespace Lightit\Backoffice\Task\App\Transformers;
 
 use Flugg\Responder\Transformers\Transformer;
 use Lightit\Backoffice\Employee\App\Transformers\EmployeeTransformer;
-use Lightit\Backoffice\Task\Domain\Enum\StatusEnum;
+use Lightit\Backoffice\Task\Domain\Enums\StatusEnum;
 use Lightit\Backoffice\Task\Models\Task;
 
 class TaskTransformer extends Transformer
@@ -33,7 +33,7 @@ class TaskTransformer extends Transformer
             'id' => $task->id,
             'title' => $task->title,
             'description' => $task->description,
-            'status' => $task->status,
+            'status' => StatusEnum::from($task->status),
             'employee_id' => $task->employee_id,
         ];
     }

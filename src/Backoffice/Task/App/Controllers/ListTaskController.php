@@ -15,7 +15,7 @@ class ListTaskController
 {
     public function __invoke(TaskRequest $request, ListTaskAction $action): JsonResponse
     {
-        $task = $action->execute($request->toDto());
+        $task = $action->execute();
 
         return responder()
                ->success($task, TaskTransformer::class)

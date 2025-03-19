@@ -34,7 +34,7 @@ abstract class TaskAssignmentNotification extends Notification implements Should
     {
         return (new MailMessage())
                 ->subject($this->getSubject())
-                ->greeting('Hey' . $notifiable->name() . '!')
+                ->greeting('Hey! You have a new notification!')
                 ->view('mail.assigned-task', [
                     'task'    => $this->task,
                     'message' => $this->getBody(),

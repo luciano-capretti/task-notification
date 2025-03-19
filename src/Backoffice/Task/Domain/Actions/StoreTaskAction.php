@@ -14,11 +14,21 @@ class StoreTaskAction
 {
     public function execute(TaskDto $taskDto): Task
     {
-        $task = Task::create($taskDto);
+        $task = Task::create([
+            'id' => $taskDto->getId(),
+            'title' => $taskDto->getTitle(),
+            'description' => $taskDto->getDescription(),
+            'status' => $taskDto->getStatus()->value,
+            'employee_id' => $taskDto->getEmployeeId(),
+        ]);
 
-        $employee = Employee::findOrFail($taskDto->getEmployeeId());
-        $employee->notify(new ReassignTaskAssignmentNotification($taskDto));
+        $notification = new ReassignTaskAssignmentNotification($task);
 
+        $employee = Employee::find($task->employee_id);
+        if ($employee) {
+            $employee->notify($notification);
+        }
+        
         return $task;
     }
 }

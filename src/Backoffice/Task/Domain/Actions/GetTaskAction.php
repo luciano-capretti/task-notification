@@ -9,10 +9,8 @@ use Lightit\Backoffice\Task\Models\Task;
 
 class GetTaskAction
 {
-    public function execute(TaskDto $taskDto): Task
+    public function execute(Task $task): Task
     {
-        $task = Task::find($taskDto->getId());
-
         return $task;
     }
 }

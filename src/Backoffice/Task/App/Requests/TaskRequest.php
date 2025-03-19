@@ -13,13 +13,9 @@ use Lightit\Backoffice\Task\Domain\Enums\StatusEnum;
 class TaskRequest extends FormRequest
 {
     public const ID = 'id';
-
     public const TITLE = 'title';
-
     public const DESCRIPTION = 'description';
-
     public const STATUS = 'status';
-
     public const EMPLOYEE_ID = 'employee_id';
 
     public function rules(): array
@@ -39,7 +35,7 @@ class TaskRequest extends FormRequest
             id: $this->integer(self::ID),
             title: $this->string(self::TITLE)->toString(),
             description: $this->string(self::DESCRIPTION)->toString(),
-            status: $this->enum(self::STATUS, StatusEnum::class),
+            status: $this->enum(self::STATUS, StatusEnum::class) ?? StatusEnum::TODO,
             employee_id: $this->integer(self::EMPLOYEE_ID)
         );
     }
